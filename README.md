@@ -1,26 +1,29 @@
 # ember-cli-dropcap
 
-This README outlines the details of collaborating on this Ember addon.
+A simple Ember wrapper for [Adobe dropcap.js][dropcap].
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-cli-dropcap`
-* `npm install`
+    ember install ember-cli-dropcap
+    
+## Usage
 
-## Running
+### Rendering a drop cap
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+    {{#drop-cap heightInLines=3}}L{{/drop-cap}}orem ipsum dolor sit amet
+    
+### Attributes
 
-## Running Tests
+The component supports two attributes:
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+* `heightInLines`
+* `baselinePos`
 
-## Building
+These attributes are the same as the parameters for [`Dropcap.layout()`][layout]
 
-* `ember build`
+[dropcap]: https://github.com/adobe-webplatform/dropcap.js
+[layout]: https://github.com/adobe-webplatform/dropcap.js#dropcaplayoutdropcapref-heightinlines-baselinepos
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+## Limitations
+
+There is currently no clean way to set properties on `Dropcap.options` without referencing the global `Dropcap` object.
